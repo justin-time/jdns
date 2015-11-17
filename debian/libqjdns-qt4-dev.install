@@ -1,0 +1,3 @@
+usr/lib/*/cmake/qjdns-qt4/*
+usr/lib/*/pkgconfig/qjdns-qt4.pc
+usr/lib/*/libqjdns-qt4.so

@@ -1,0 +1,140 @@
+Source: libjdns
+Section: libs
+Priority: optional
+Maintainer: Stefan Ahlers <stef.ahlers@t-online.de>
+Build-Depends: cmake,
+               debhelper (>= 9),
+               qtbase5-dev,
+               libqt4-dev
+Standards-Version: 3.9.6
+Homepage: http://delta.affinix.com/jdns/
+
+Package: jdns
+Section: misc
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: command-line tool to test functionality
+ Qt4-based command-line tool called ‘jdns’ that can be used to test
+ functionality.
+ 
+Package: jdns-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: jdns (= ${binary:Version}), ${misc:Depends}
+Description: command-line tool to test functionality - debugging symbols
+ Qt4-based command-line tool called ‘jdns’ that can be used to test
+ functionality.
+ .
+ This package contains the debugging symbols for debugging crashes in the
+ qjdns Qt4 wrapper.
+
+Package: libjdns2
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Simple DNS queries library 
+ JDNS is a simple DNS implementation that can perform normal DNS
+ queries of any record type (notably SRV), as well as Multicast DNS
+ queries and advertising. Multicast support is based on Jeremie
+ Miller's "mdnsd" implementation.
+
+Package: libqjdns-qt4-2
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Simple DNS queries library  - QT4 wrapper
+ For Qt4 users there is a wrapper available called QJDns and a very
+ high-level wrapper called QJDnsShared (under its original name
+ JDnsShared).
+
+Package: libqjdns-qt4-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libqjdns-qt4-2 (= ${binary:Version}), ${misc:Depends}
+Description: Simple DNS queries library QT4 wrapper - development files
+ JDNS is a simple DNS implementation that can perform normal DNS
+ queries of any record type (notably SRV), as well as Multicast DNS
+ queries and advertising.
+ .
+ The libqjdns-qt4-dev package contains libraries and header files for
+ developing Qt4 applications that use qjdns.
+
+Package: libjdns-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libjdns2 (= ${binary:Version}), ${misc:Depends}
+Description: Simple DNS queries library - development files
+ JDNS is a simple DNS implementation that can perform normal DNS
+ queries of any record type (notably SRV), as well as Multicast DNS
+ queries and advertising. Multicast support is based on Jeremie
+ Miller's "mdnsd" implementation.
+ .
+ The libjdns-dev package contains libraries and header files for
+ developing applications that use jdns.
+
+Package: libjdns-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Multi-Arch: same
+Depends: libjdns2 (= ${binary:Version}), ${misc:Depends}
+Description: Simple DNS queries library - debugging symbols
+ JDNS is a simple DNS implementation that can perform normal DNS
+ queries of any record type (notably SRV), as well as Multicast DNS
+ queries and advertising.
+ .
+ This package contains the debugging symbols for debugging crashes in the
+ jdns library.
+
+Package: libqjdns-qt4-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Multi-Arch: same
+Depends: libqjdns-qt4-2 (= ${binary:Version}), ${misc:Depends}
+Description: Simple DNS queries library (Qt4) - debugging symbols
+ JDNS is a simple DNS implementation that can perform normal DNS
+ queries of any record type (notably SRV), as well as Multicast DNS
+ queries and advertising.
+ .
+ This package contains the debugging symbols for debugging crashes in the
+ qjdns Qt4 wrapper.
+
+Package: libqjdns-qt5-2
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Simple DNS queries library  - Qt5 wrapper
+ For Qt5 users there is a wrapper available called QJDns and a very
+ high-level wrapper called QJDnsShared (under its original name
+ JDnsShared).
+
+Package: libqjdns-qt5-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libqjdns-qt5-2 (= ${binary:Version}), ${misc:Depends}
+Description: Simple DNS queries library Qt5 wrapper - development files
+ JDNS is a simple DNS implementation that can perform normal DNS
+ queries of any record type (notably SRV), as well as Multicast DNS
+ queries and advertising.
+ .
+ The libqjdns-qt5-dev package contains libraries and header files for
+ developing Qt5 applications that use qjdns.
+
+Package: libqjdns-qt5-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Multi-Arch: same
+Depends: libqjdns-qt5-2 (= ${binary:Version}), ${misc:Depends}
+Description: Simple DNS queries library (Qt5) - debugging symbols
+ JDNS is a simple DNS implementation that can perform normal DNS
+ queries of any record type (notably SRV), as well as Multicast DNS
+ queries and advertising.
+ .
+ This package contains the debugging symbols for debugging crashes in the
+ qjdns Qt5 wrapper.

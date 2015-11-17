@@ -1,0 +1,55 @@
+.TH JDNS "1" "November 2015" "jdns" "User Commands"
+.SH NAME
+jdns \- command-line tool to test functionality of jdns
+.SH SYNOPSIS
+\fIjdns\fR (options) uni [type] [name] (nameserver(;port)|mul ...)
+.RS 5
+(options) mul [type] [name]
+.RE
+.RS 5
+(options) pub [items ...]
+.RE
+.RS 5
+sys
+.RE
+.SH OPTIONS
+.PP
+\fB\-d\fR
+.RS 4
+show debug output
+.RE
+.PP
+\fB\-6\fR
+.RS 4
+use ipv6
+.RE
+.PP
+\fB\-q x \fR
+.RS 4
+quit x seconds after starting
+.RE
+
+.SH EXAMPLES
+.RS 0
+jdns uni a jabber.org 192.168.0.1
+.RE
+.RS 0
+jdns uni srv _xmpp\-client._tcp.jabber.org 192.168.0.1;53
+.RE
+.RS 0
+jdns uni 10 user@host._presence._tcp.local mul
+.RE
+.RS 0
+jdns mul a foobar.local
+.RE
+.RS 0
+jdns mul ptr _services._dns\-sd._udp.local
+.RE
+.RS 0
+jdns pub a:mybox.local.,192.168.0.55
+.RE
+
+.PP
+.SH AUTHORS
+.B jdns
+was written by Justin Karneges and Jeremie Miller.

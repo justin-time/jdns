@@ -1,0 +1,44 @@
+#!/usr/bin/make -f
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+QT4_PATH = build/qt4/so
+QT5_PATH = build/qt5/so
+
+%:
+	dh $@ --parallel
+	
+override_dh_auto_configure:
+	mkdir -p $(QT4_PATH) $(QT5_PATH)
+	
+	# Qt4 builds
+	dh_auto_configure -B$(QT4_PATH) -- -DLIB_SUFFIX=/$(DEB_HOST_MULTIARCH) -DMULTI_QT=ON -DQT4_BUILD=ON
+	
+	# Qt5 builds 
+	dh_auto_configure -B$(QT5_PATH) -- -DLIB_SUFFIX=/$(DEB_HOST_MULTIARCH) -DMULTI_QT=ON -DBUILD_JDNS_TOOL=OFF
+
+override_dh_auto_build:
+	# Qt4 builds - make (dynamic and static)
+	QT_SELECT=qt4 dh_auto_build -B$(QT4_PATH)
+
+	# Qt5 builds - make (dynamic and static)
+	QT_SELECT=qt5 dh_auto_build -B$(QT5_PATH)
+	
+override_dh_auto_clean:
+	dh_auto_clean -B$(QT4_PATH)
+	dh_auto_clean -B$(QT5_PATH)
+
+override_dh_auto_install:
+	# Install Qt4 packages
+	dh_auto_install -B$(QT4_PATH)
+
+	# Install Qt5 packages
+	dh_auto_install -B$(QT5_PATH)
+
+override_dh_strip:
+	dh_strip -pjdns --dbg-package=jdns-dbg
+	dh_strip -plibjdns2 --dbg-package=libjdns-dbg
+	dh_strip -plibqjdns-qt4-2 --dbg-package=libqjdns-qt4-dbg
+	dh_strip -plibqjdns-qt5-2 --dbg-package=libqjdns-qt5-dbg
+
+override_dh_install:
+	dh_install --list-missing

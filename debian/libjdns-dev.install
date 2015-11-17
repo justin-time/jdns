@@ -1,0 +1,5 @@
+usr/include/jdns/*
+usr/lib/*/cmake/jdns/*
+usr/lib/*/cmake/qjdns/*
+usr/lib/*/libjdns.so
+usr/lib/*/pkgconfig/jdns.pc
